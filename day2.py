@@ -49,3 +49,20 @@ for char in name:
 #new thing that i learned
 for char in name:
     print(char, end="") #prints the same string
+
+#for loop in list(array)
+num=[2, 4, 6]
+for number in num:
+    print(number)
+
+# fizzbuzz with range()
+for i in range(20):
+    if i%3==0:
+        if i%5==0:
+            print("fizzbuzz")
+        else:
+            print("fizz")
+    elif i%5==0:
+        print("buzz")
+    else:
+        print(i)
