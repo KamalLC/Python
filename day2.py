@@ -66,3 +66,28 @@ for i in range(20):
         print("buzz")
     else:
         print(i)
+
+numbers=list(range(5))
+print(numbers)
+
+
+# break, pass and continue
+numb=0
+for i in range(1000):
+    if i%2==0:
+        continue
+    elif i>=100:
+        break
+    else:
+        pass
+    print(i)
+
+# while True:
+#     if numb%2==0:
+#         continue
+#     elif numb>100:
+#         break
+#     else:
+#         pass
+#     print(numb)
+#     numb+=1
