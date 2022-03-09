@@ -82,12 +82,12 @@ for i in range(1000):
         pass
     print(i)
 
-# while True:
-#     if numb%2==0:
-#         continue
-#     elif numb>100:
-#         break
-#     else:
-#         pass
-#     print(numb)
-#     numb+=1
+while True:
+    numb+=1
+    if numb%2==0:
+        continue
+    elif numb>100:
+        break
+    else:
+        pass
+    print(numb)
