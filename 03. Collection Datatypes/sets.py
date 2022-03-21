@@ -34,3 +34,4 @@ print(s1)
 
 for ele in s1:
     print(ele)
+
