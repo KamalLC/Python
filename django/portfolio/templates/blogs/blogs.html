@@ -1,0 +1,105 @@
+<!-- <html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Blogs</title>
+	<link rel="stylesheet" href="../Static/Styles/style.css">
+</head> -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>My portfolio</title>
+	<link rel="stylesheet" href="../Static/Styles/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<nav class="nav">
+			<a href="{% url 'index' %}" class="nav-logo">Kamal.</a>
+			<div class="nav-links">
+				<a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+			</div>
+		</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="section-blogs">
+			<div class="container">
+	          <h1 class="heading-primary margin-unset">My Recent blogs &DownArrow;</h1>
+	        </div>
+	        <div class="container">
+	        	<div class="blogs">
+	        		<div class="blog-card">
+	        			<div class="blog-card-text">
+	        				<div class="blog-text-info">
+	        					<h4 class="blog-title">Web Servers</h4>
+	        					<p class="blog-subtitle">Web servers are programs that provide documents to requesting browsers identified using URLs. Servers are slave Programs.</p>
+	        					<span class="blog-date">1 March 2022</span>
+	        				</div>
+	        				<div class="blog-link-info">
+	        					<a href="blog-detail.html" class="blog-link">>Read more about this blog. &nearr;</a>
+	        				</div>
+	        			</div>
+	        			<div class="blog-card-img">
+	        				<img src="../Static/Images/forest.jpg" alt="" class="blog-card-img">
+	        			</div>
+	        		</div>
+	        		<div class="blog-card">
+	        			<div class="blog-card-text">
+	        				<div class="blog-text-info">
+	        					<h4 class="blog-title">Computational Simulation</h4>
+	        					<p class="blog-subtitle">A computational simulation is a dynamic, process-oriented model instantiated on a computer. These can range from traditional economic models (expressed as equations) to more abstract constructs and processes.</p>
+	        					<span class="blog-date">1 March 2022</span>
+	        				</div>
+	        				<div class="blog-link-info">
+	        					<a href="simulation.html" class="blog-link">>Read more about this blog. &nearr;</a>
+	        				</div>
+	        			</div>
+	        			<div class="blog-card-img">
+	        				<img src="../Static/Images/tiger2.jpg" alt="" class="blog-card-img">
+	        			</div>
+	        		</div>
+	        		<div class="blog-card">
+	        			<div class="blog-card-text">
+	        				<div class="blog-text-info">
+	        					<h4 class="blog-title">Lorem Ipsum</h4>
+	        					<p class="blog-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in fermentum posuere urna nec tincidunt praesent semper.</p>
+	        					<span class="blog-date">1 March 2022</span>
+	        				</div>
+	        				<div class="blog-link-info">
+	        					<a href="lorem-ipsum.html" class="blog-link">>Read more about this blog. &nearr;</a>
+	        				</div>
+	        			</div>
+	        			<div class="blog-card-img">
+	        				<img src="../Static/Images/forest3.jpg" alt="" class="blog-card-img">
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="flex-row">
+	          <div class="column">
+	            <p class="nav-link">&copy; Kamal Lamichhane 2022</p>
+	          </div>
+	          <div class="column">
+	            <div class="social-links">
+	              <a href="https://www.facebook.com/kamal.lamichhane.5203" class="nav-link" target="_blank">Facebook</a>
+	              <a href="https://www.linkedin.com/in/kamal-lamichhane-07224917b/" class="nav-link" target="_blank">Linkedin</a>
+	              <a href="https://twitter.com/KamalLa71156844" class="nav-link" target="_blank">Twitter</a>
+	              <a href="https://github.com/KamalLC" class="nav-link" target="_blank">Github</a>
+	            </div>
+	          </div>
+	        </div>
+		</div>
+	</footer>
+</body>
+</html>
