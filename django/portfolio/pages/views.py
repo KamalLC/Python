@@ -11,3 +11,6 @@ def blogs(request):
 
 def contact(request):
     return render(request, "pages/contact.html")
+
+def blogDetail(request):
+    return render(request, "blogs/blog-detail.html")

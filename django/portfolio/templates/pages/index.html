@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>My portfolio</title>
-	<link rel="stylesheet" type="text/css" href="./Static/Styles/style.css">
-	
-</head>
-<body>
-	<header class="header">
-		<div class="container">
-			<nav class="nav">
-			<a href="#" class="nav-logo">Kamal.</a>
-			<div class="nav-links">
-				<a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
-				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
-			</div>
-		</nav>
-		</div>
-		 
-	</header>
 
-	<main>
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}My portfolio{% endblock %}
+{% block main %}
 		<section class="hero">
 			<div class="container">
 				<div class="flex-row">
@@ -39,7 +20,7 @@
 					</div>
 					<div class="column">
 						<img
-			                src="Static/Images/kamallc.jpeg"
+			                src="{% static 'Images/kamallc.jpeg' %}"
 			                alt=""
 			                class="img-responsive"
 			              />
@@ -90,24 +71,4 @@
 				</div>
 			</div>
 		</section>
-	</main>
-
-	<footer class="footer">
-		<div class="container">
-			<div class="flex-row">
-	          <div class="column">
-	            <p class="nav-link">&copy; Kamal Lamichhane 2022</p>
-	          </div>
-	          <div class="column">
-	            <div class="social-links">
-	              <a href="https://www.facebook.com/kamal.lamichhane.5203" class="nav-link" target="_blank">Facebook</a>
-	              <a href="https://www.linkedin.com/in/kamal-lamichhane-07224917b/" class="nav-link" target="_blank">Linkedin</a>
-	              <a href="https://twitter.com/KamalLa71156844" class="nav-link" target="_blank">Twitter</a>
-	              <a href="https://github.com/KamalLC" class="nav-link" target="_blank">Github</a>
-	            </div>
-	          </div>
-	        </div>
-		</div>
-	</footer>
-</body>
-</html>
+{% endblock %}

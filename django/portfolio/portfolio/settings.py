@@ -54,6 +54,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
+STATIC_DIR = BASE_DIR / "static" #new
+
 
 TEMPLATES = [
     {
@@ -119,7 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [ STATIC_DIR ] #new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
