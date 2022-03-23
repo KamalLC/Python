@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
 {% load static %}
+{% block title %} {{blog.title}} {% endblock %}
 
 {% block main %}
 		<section class="section-blogs">
@@ -9,21 +10,15 @@
 			<div class="container">
 				<div class="blog-detail">
 					<div class="blog-img">
-						<img src="{% static 'Images/forest.jpg' %}" alt="" class="blog-post-img">
+						<img src="{% static blog.image %}" alt="" class="blog-post-img">
 					</div>
 					<div class="blog-text-info">
-    					<h4 class="blog-title">{% block title %}Web Servers{% endblock %}</h4>
-    					<p class="blog-subtitle">Web servers are programs that provide documents to requesting browsers identified using URLs. Servers are slave Programs.</p>
-    					<span class="blog-date">1 March 2022</span>
+    					<h4 class="blog-title">{{blog.title}}</h4>
+    					<p class="blog-subtitle">{{blog.subtitle}}</p>
+    					<span class="blog-date">{{blog.date}}</span>
     					<div class="blog-para">
     						<p class="blog-paragraph">
-    							Web servers are programs that provide documents to requesting browsers identified using URLs. Servers are slave Programs : They act only when requests are made to them by browser running on others computers on the Internet. The most commonly used Web servers are Apache , which runs under Windows operating systems.
-    						</p>
-    						<p class="blog-paragraph">
-    							First, Web browsers initiate network communications with servers by sending URLs. One of two different things can be specified by URL: the address of data file stored on the server or a stored program on the server that clients wants executed and the output of the program returned to the client. The standard Web protocol HTTP(Hypertext Transfer Protocol), is responsible for all the communication between Web client and Web servers. When Web server begins execution , it informs the operating system under which it is running that it is now ready to accept incoming network connections through a specific port on the machine. In this running state , the server runs as a background process in the operating system. Then a network connection is established between Web client or browser and Web server. And sends information requests and possibly data to the server, receives information from the server and close the connection.
-    						</p>
-    						<p class="blog-paragraph">
-    							Document root is he file structure of the serer has two separate directories. The root of one of this is document root. Server root is another root directory of web server file structure. Virtual document tree: Many servers allow a part of the servable document stored out side of the document root this is called virtual document tree. Virtual hosts: many servers can support more than one site on a computer potentially reducing the cost of each site and makes their maintenance more convenient. such secondary hosts are called virtual hosts. Proxy server: some servers can serve documents that are in the document root of the other machines are on the web are called proxy servers. Web servers not only support HTTP but also ftp, Gopher, News and mail.
+    							{{blog.paragraph | safe}}
     						</p>
     					</div>
     				</div>
