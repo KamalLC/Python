@@ -1,34 +1,37 @@
-
-{% extends 'pages/base.html' %}
-{% load static %}
-
-{% block title %}My Blogs{% endblock %}
+{% extends "pages/base.html" %}
 
 {% block main %}
-		<section class="section-blogs">
-			<div class="container">
-	          <h1 class="heading-primary margin-unset">My Recent blogs &DownArrow;</h1>
-	        </div>
-	        <div class="container">
-	        	<div class="blogs">
-					{% for blog in blogs_list %}
-	        		<div class="blog-card">
-	        			<div class="blog-card-text">
-	        				<div class="blog-text-info">
-	        					<h4 class="blog-title">{{blog.title}}</h4>
-	        					<p class="blog-subtitle">{{blog.subtitle}}</p>
-	        					<span class="blog-date">{{blog.date}}</span>
-	        				</div>
-	        				<div class="blog-link-info">
-	        					<a href="{% url 'blogDetail' blog.id %}" class="blog-link">>{{blog.btntext}}</a>
-	        				</div>
-	        			</div>
-	        			<div class="blog-card-img">
-	        				<img src="{% static blog.image %}" alt="" class="blog-card-img">
-	        			</div>
-	        		</div>
-	        		{% endfor %}
-	        	</div>
-	        </div>
-		</section>
-	{% endblock %}
+      <section class="section-blogs">
+        <div class="container">
+          <h1 class="heading-primary">My Recent blogs &DownArrow;</h1>
+        </div>
+        <div class="container">
+          <div class="blogs">
+          {% for blog in blogs_list %}
+            <div class="blog-card">
+              <div class="blog-card-text">
+                <div class="blog-text-info">
+                  <h4 class="blog-title">{{blog.title}}</h4>
+                  <p class="blog-subtitle">
+                  {{blog.subtitle}}
+                  </p>
+                  <span class="blog-date">{{blog.date}} </span>
+                </div>
+                <div class="blog-link-info">
+                  <a href="{% url 'blog_detail' blog.id %}" class="blog-link">{{blog.btntext}}</a>
+                </div>
+              </div> 
+             
+              <div class="blog-card-img">
+                <img
+                  src="{{blog.image.url}}"
+                  alt=""
+                  class="blog-card-img"
+                />
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </section>
+{% endblock %}
