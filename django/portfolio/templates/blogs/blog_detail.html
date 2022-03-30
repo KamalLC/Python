@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'pages/base.html' %} 
 {% block main %}
 <section class="section-blogs">
   <div class="container">
@@ -12,12 +12,12 @@
   </div>
   <div class="container">
     <div class="blog-detail">
-      <div class="blog-card blog-card-detail">
-        <div class="blog-card-img">
+      <div class="blog-card-detail">
+        <div class="blog-img">
           <img
             src="{{blog.image.url}}"
             alt=""
-            class="img-responsive"
+            class="blog-post-img"
           />
         </div>
         <div class="blog-card-text">

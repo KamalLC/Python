@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "pages/base.html" %}
 
 {% block main %}
       <section class="section-blogs">
         <div class="container">
         <div class="flex">
           <h1 class="heading-primary">My Recent blogs &DownArrow;</h1>
-            <a href="{% url 'blog_create' %}" class="btn">Create a New Blog</a>
+          <a href="{% url 'blog_create' %}" class="btn nav-link">Create a New Blog</a>
         </div>
         </div>
         <div class="container">
@@ -21,7 +21,7 @@
                   <span class="blog-date">{{blog.created_at}} </span>
                 </div>
                 <div class="blog-link-info">
-                  <a href="{% url 'blog_detail' blog.id %}" class="blog-link">Read more</a>
+                  <a href="{% url 'blog_detail' blog.id %}" class="blog-link">>Read more about this blog. ↗</a>
                 </div>
               </div> 
              
@@ -29,7 +29,7 @@
                 <img
                   src="{{blog.image.url}}"
                   alt=""
-                  class="img-responsive"
+                  class="blog-card-img"
                 />
               </div>
             </div>
