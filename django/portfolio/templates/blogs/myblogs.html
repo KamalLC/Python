@@ -3,8 +3,9 @@
 {% block main %}
       <section class="section-blogs">
         <div class="container">
-        <div class="">
-          <h1 class="heading-primary">Recent Blogs &DownArrow;</h1>
+        <div class="flex">
+          <h1 class="heading-primary">My Recent blogs &DownArrow;</h1>
+            <a href="{% url 'blog_create' %}" class="btn">Create a New Blog</a>
         </div>
         </div>
         <div class="container">
@@ -24,7 +25,7 @@
                
                 </div>
                 <div class="blog-link-info">
-                  <a href="{% url 'blog_detail' blog.id %}" class="blog-link">Read more</a>
+                  <a href="{% url 'myblog_detail' blog.id %}" class="blog-link">Read more</a>
                 </div>
               </div> 
              

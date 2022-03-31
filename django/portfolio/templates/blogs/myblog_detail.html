@@ -2,8 +2,12 @@
 {% block main %}
 <section class="section-blogs">
   <div class="container">
-      <div class="">
+      <div class="flex">
       <a href="{% url 'blog' %}" class="nav-link underline">Back to blogs</a>
+      <div class="flex g-3">
+        <a href="{% url 'blog_update' blog.id %}" class="nav-link underline">Edit this blog</a>
+       <a href="{% url 'blog_delete' blog.id  %}" class="nav-link underline color-red">Delete this blog</a>
+      </div>
   </div>
   </div>
   <div class="container">

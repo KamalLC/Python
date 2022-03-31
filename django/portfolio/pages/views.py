@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import HomePage, Blog
 from .forms import BlogForm,BlogModelForm
+from django.urls import reverse_lazy
 # Create your views here.
 
 def index(request):
@@ -89,3 +90,84 @@ def blog_delete(request,id):
     blog = Blog.objects.get(id=id)
     blog.delete()
     return redirect('/blog')
+
+
+#Class Based Views (Base View)
+from django.views.generic import TemplateView
+
+#1
+class Index(TemplateView):
+    template_name = 'pages/index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        homepage_data = HomePage.objects.get(id=1)
+        context = {
+        'title':homepage_data.title,
+        'para1':homepage_data.para1,
+        'para2':homepage_data.para2,
+        'skills_list':homepage_data.skills_list,
+        'softwares_list':homepage_data.softwares_list,
+        'mail':homepage_data.mail,
+        }
+        return context
+
+    
+#Class Based Views (Generic View)
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+
+#3
+class BlogList(ListView):
+    model = Blog
+    template_name=  'blogs/blogs.html'
+    context_object_name = 'blogs_list'
+
+#5 
+class BlogDetail(DetailView):
+    model = Blog
+    template_name=  'blogs/blog_detail.html'
+    context_object_name = 'blog'
+
+
+class MyBlogDetail(DetailView):
+    model = Blog
+    template_name=  'blogs/myblog_detail.html'
+    context_object_name = 'blog'
+
+#7
+class BlogCreate(CreateView):
+    model = Blog
+    form_class = BlogModelForm
+    template_name = 'blogs/blog_create.html'
+    success_url = '/blog'
+    def form_valid(self, form): # new
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+#9
+class BlogUpdate(UpdateView):
+    model = Blog
+    #form_class = BlogModelForm
+    fields = ['title','subtitle', 'paragraph','image'] 
+    template_name = 'blogs/blog_update.html'
+    #11 changes to model to get absolute url
+
+#12
+class BlogDelete(DeleteView): 
+    model = Blog
+    template_name = 'blogs/blog_delete.html'
+    success_url = reverse_lazy('blog')  
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class MyBlogList(LoginRequiredMixin,ListView):
+    login_url = '/signin/'
+    model = Blog
+    template_name=  'blogs/myblogs.html'
+    context_object_name = 'blogs_list'
+
+    def get_queryset(self):
+        user = self.request.user
+        return Blog.objects.filter(author=user)
