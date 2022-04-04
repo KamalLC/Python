@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 
 {% block main %}
       <section class="section-blogs">
@@ -19,10 +19,9 @@
                   {{blog.subtitle}}
                   </p>
                   <span class="blog-date">{{blog.created_at}} </span>
-                  <p>
-                     <span class="blog-date">Author : {{blog.author}} </span>
-                  </p>
-               
+                   <p>
+                    <span class="blog-date">Author : {{blog.author}} </span>
+                    </p>
                 </div>
                 <div class="blog-link-info">
                   <a href="{% url 'myblog_detail' blog.id %}" class="blog-link">Read more</a>

@@ -21,3 +21,9 @@ class BlogModelForm(forms.ModelForm):
             'paragraph': forms.Textarea(attrs={'class': 'form-control','id':'paragraph'}),
             'image': forms.FileInput(attrs={'class':'form-control'}),
         }
+        # labels = {
+        #     'title': 'Blog Title',
+        #     'subtitle': 'Blog Subtitle',
+        #     'paragraph': 'Blog Paragraph',
+        #     'image': 'Blog Image',
+        # }

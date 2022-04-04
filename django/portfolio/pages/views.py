@@ -3,6 +3,17 @@ from django.http import HttpResponse
 from .models import HomePage, Blog
 from .forms import BlogForm,BlogModelForm
 from django.urls import reverse_lazy
+
+#Class Based Views (Base View)
+from django.views.generic import TemplateView
+
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+
+#Class Based Views (Generic View)
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+
 # Create your views here.
 
 def index(request):
@@ -92,8 +103,6 @@ def blog_delete(request,id):
     return redirect('/blog')
 
 
-#Class Based Views (Base View)
-from django.views.generic import TemplateView
 
 #1
 class Index(TemplateView):
@@ -112,10 +121,6 @@ class Index(TemplateView):
         return context
 
     
-#Class Based Views (Generic View)
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView,UpdateView,DeleteView
 
 #3
 class BlogList(ListView):
@@ -130,10 +135,15 @@ class BlogDetail(DetailView):
     context_object_name = 'blog'
 
 
-class MyBlogDetail(DetailView):
+class MyBlogDetail(LoginRequiredMixin,UserPassesTestMixin,DetailView):
+    login_url = '/signin/'
     model = Blog
     template_name=  'blogs/myblog_detail.html'
     context_object_name = 'blog'
+    
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user     
 
 #7
 class BlogCreate(CreateView):
@@ -146,21 +156,31 @@ class BlogCreate(CreateView):
         return super().form_valid(form)
 
 #9
-class BlogUpdate(UpdateView):
+class BlogUpdate(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+    login_url = '/signin/'
     model = Blog
     #form_class = BlogModelForm
     fields = ['title','subtitle', 'paragraph','image'] 
     template_name = 'blogs/blog_update.html'
     #11 changes to model to get absolute url
+    
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user     
 
 #12
-class BlogDelete(DeleteView): 
+class BlogDelete(LoginRequiredMixin,UserPassesTestMixin,DeleteView): 
+    login_url = '/signin/'
     model = Blog
     template_name = 'blogs/blog_delete.html'
-    success_url = reverse_lazy('blog')  
+    success_url = reverse_lazy('blog')   
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user  
 
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class MyBlogList(LoginRequiredMixin,ListView):
     login_url = '/signin/'

@@ -1,5 +1,4 @@
 """portfolio URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -21,5 +20,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('pages.urls')),
-    path('',include('account.urls'))
+    path('',include('account.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

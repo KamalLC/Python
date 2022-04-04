@@ -1,8 +1,8 @@
-{% extends 'pages/base.html' %} 
+{% extends 'base.html' %} 
 {% block main %}
 <section class="section-blogs">
   <div class="container">
-      <div class="">
+      <div class="flex">
       <a href="{% url 'blog' %}" class="nav-link underline">Back to blogs</a>
   </div>
   </div>
@@ -23,6 +23,9 @@
               {{blog.subtitle | upper}}
             </p>
             <span class="blog-date"> {{blog.date}} </span>
+            <p>
+           <span class="blog-date">Author : {{blog.author}} </span>
+             </p>
             <div class="blog-para">
               <p class="blog-paragraph">
                 {{blog.paragraph | safe}}

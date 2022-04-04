@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-
 # Create your models here.
 class HomePage(models.Model):
     title = models.CharField(max_length=200)
@@ -16,7 +15,7 @@ class HomePage(models.Model):
         return self.title
 
 class Blog(models.Model):
-    author = models.ForeignKey('auth.User',on_delete=models.CASCADE,related_name='User') 
+    author = models.ForeignKey('auth.User',on_delete=models.CASCADE) 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200)
@@ -29,6 +28,5 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-    #11
     def get_absolute_url(self):
         return reverse('blog_detail', args=[str(self.id)])
